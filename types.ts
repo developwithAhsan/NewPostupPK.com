@@ -25,7 +25,7 @@ export interface Tool {
   title: string;
   description: string;
   longDescription?: string;
-  category: 'pdf' | 'image' | 'media' | 'text' | 'calculator' | 'converter' | 'automotive' | 'finance' | 'number' | 'ebook';
+  category: 'pdf' | 'image' | 'media' | 'text' | 'calculator' | 'converter' | 'automotive' | 'finance' | 'number' | 'ebook' | 'unit' | 'security' | 'web' | 'audio';
   icon: string;
   path: string;
   keywords?: string[];

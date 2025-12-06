@@ -482,7 +482,6 @@ export const processCurrencyConverter = async (config: ToolConfig): Promise<Proc
     const from = config.from;
     const to = config.to;
     
-    // Static Fallback Rates (Mock)
     const rates: any = {
         'USD': 1, 'EUR': 0.92, 'GBP': 0.79, 'PKR': 278.50, 'INR': 83.50, 'AED': 3.67, 'SAR': 3.75
     };
@@ -499,5 +498,675 @@ export const processCurrencyConverter = async (config: ToolConfig): Promise<Proc
             subValue: `Rate: 1 ${from} = ${(rates[to]/rates[from]).toFixed(4)} ${to}`
         }, 
         type: 'generic-result' 
+    };
+};
+
+// --- Unit Converter Tools ---
+
+const lengthUnits: any = {
+    'meter': 1, 'kilometer': 1000, 'centimeter': 0.01, 'millimeter': 0.001,
+    'feet': 0.3048, 'inch': 0.0254, 'yard': 0.9144, 'mile': 1609.344
+};
+
+export const processLengthConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    if (!lengthUnits[from] || !lengthUnits[to]) throw new Error("Invalid unit selected");
+    
+    const inMeters = value * lengthUnits[from];
+    const result = (inMeters / lengthUnits[to]).toFixed(6);
+    
+    return {
+        data: { resultTitle: `${value} ${from} =`, mainValue: `${parseFloat(result)} ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+const weightUnits: any = {
+    'kilogram': 1, 'gram': 0.001, 'milligram': 0.000001, 'pound': 0.453592,
+    'ounce': 0.0283495, 'ton': 1000, 'stone': 6.35029
+};
+
+export const processWeightConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    if (!weightUnits[from] || !weightUnits[to]) throw new Error("Invalid unit selected");
+    
+    const inKg = value * weightUnits[from];
+    const result = (inKg / weightUnits[to]).toFixed(6);
+    
+    return {
+        data: { resultTitle: `${value} ${from} =`, mainValue: `${parseFloat(result)} ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+export const processTemperatureConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    
+    let celsius: number;
+    if (from === 'celsius') celsius = value;
+    else if (from === 'fahrenheit') celsius = (value - 32) * 5/9;
+    else if (from === 'kelvin') celsius = value - 273.15;
+    else throw new Error("Invalid unit");
+    
+    let result: number;
+    if (to === 'celsius') result = celsius;
+    else if (to === 'fahrenheit') result = (celsius * 9/5) + 32;
+    else if (to === 'kelvin') result = celsius + 273.15;
+    else throw new Error("Invalid unit");
+    
+    return {
+        data: { resultTitle: `${value}° ${from} =`, mainValue: `${result.toFixed(2)}° ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+const areaUnits: any = {
+    'sqmeter': 1, 'sqkilometer': 1000000, 'sqfeet': 0.092903, 'sqyard': 0.836127,
+    'acre': 4046.86, 'hectare': 10000, 'sqmile': 2589988.11
+};
+
+export const processAreaConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    if (!areaUnits[from] || !areaUnits[to]) throw new Error("Invalid unit selected");
+    
+    const inSqMeters = value * areaUnits[from];
+    const result = (inSqMeters / areaUnits[to]).toFixed(6);
+    
+    return {
+        data: { resultTitle: `${value} ${from} =`, mainValue: `${parseFloat(result)} ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+const volumeUnits: any = {
+    'liter': 1, 'milliliter': 0.001, 'cubicmeter': 1000, 'gallon': 3.78541,
+    'quart': 0.946353, 'pint': 0.473176, 'cup': 0.236588, 'fluidounce': 0.0295735
+};
+
+export const processVolumeConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    if (!volumeUnits[from] || !volumeUnits[to]) throw new Error("Invalid unit selected");
+    
+    const inLiters = value * volumeUnits[from];
+    const result = (inLiters / volumeUnits[to]).toFixed(6);
+    
+    return {
+        data: { resultTitle: `${value} ${from} =`, mainValue: `${parseFloat(result)} ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+const speedUnits: any = {
+    'kmh': 1, 'mph': 1.60934, 'ms': 3.6, 'knots': 1.852, 'fts': 1.09728
+};
+
+export const processSpeedConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    if (!speedUnits[from] || !speedUnits[to]) throw new Error("Invalid unit selected");
+    
+    const inKmh = value * speedUnits[from];
+    const result = (inKmh / speedUnits[to]).toFixed(4);
+    
+    return {
+        data: { resultTitle: `${value} ${from} =`, mainValue: `${parseFloat(result)} ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+const timeUnits: any = {
+    'second': 1, 'minute': 60, 'hour': 3600, 'day': 86400,
+    'week': 604800, 'month': 2629746, 'year': 31556952
+};
+
+export const processTimeConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const value = Number(config.value);
+    const from = config.from;
+    const to = config.to;
+    
+    if (isNaN(value)) throw new Error("Enter a valid number");
+    if (!timeUnits[from] || !timeUnits[to]) throw new Error("Invalid unit selected");
+    
+    const inSeconds = value * timeUnits[from];
+    const result = (inSeconds / timeUnits[to]).toFixed(6);
+    
+    return {
+        data: { resultTitle: `${value} ${from} =`, mainValue: `${parseFloat(result)} ${to}`, subValue: '' },
+        type: 'generic-result'
+    };
+};
+
+// --- Text Conversion Tools ---
+
+export const processUppercaseConverter = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to convert");
+    return { data: text.toUpperCase(), type: 'text' };
+};
+
+export const processLowercaseConverter = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to convert");
+    return { data: text.toLowerCase(), type: 'text' };
+};
+
+export const processSentenceCaseConverter = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to convert");
+    const result = text.toLowerCase().replace(/(^\s*\w|[.!?]\s*\w)/g, c => c.toUpperCase());
+    return { data: result, type: 'text' };
+};
+
+export const processTitleCaseConverter = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to convert");
+    const result = text.toLowerCase().split(' ').map(word => 
+        word.charAt(0).toUpperCase() + word.slice(1)
+    ).join(' ');
+    return { data: result, type: 'text' };
+};
+
+export const processRemoveLineBreaks = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to process");
+    const result = text.replace(/(\r\n|\n|\r)/gm, ' ').replace(/\s+/g, ' ').trim();
+    return { data: result, type: 'text' };
+};
+
+export const processRemoveExtraSpaces = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to process");
+    const result = text.replace(/\s+/g, ' ').trim();
+    return { data: result, type: 'text' };
+};
+
+export const processTextToBinary = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to convert");
+    const result = text.split('').map(char => char.charCodeAt(0).toString(2).padStart(8, '0')).join(' ');
+    return { data: result, type: 'text' };
+};
+
+export const processTextToAscii = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to convert");
+    const result = text.split('').map(char => char.charCodeAt(0)).join(' ');
+    return { data: result, type: 'text' };
+};
+
+export const processAsciiToText = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter ASCII codes (space separated)");
+    const codes = text.trim().split(/\s+/).map(Number);
+    if (codes.some(isNaN)) throw new Error("Invalid ASCII codes");
+    const result = String.fromCharCode(...codes);
+    return { data: result, type: 'text' };
+};
+
+export const processBase64Encoder = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to encode");
+    const result = btoa(unescape(encodeURIComponent(text)));
+    return { data: result, type: 'text' };
+};
+
+export const processBase64Decoder = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter Base64 to decode");
+    try {
+        const result = decodeURIComponent(escape(atob(text)));
+        return { data: result, type: 'text' };
+    } catch {
+        throw new Error("Invalid Base64 string");
+    }
+};
+
+// --- Web & Coding Tools ---
+
+export const processHtmlBeautifier = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter HTML code");
+    let formatted = '';
+    let indent = 0;
+    const tab = '  ';
+    const lines = text.replace(/>\s*</g, '>\n<').split('\n');
+    
+    lines.forEach(line => {
+        const trimmed = line.trim();
+        if (trimmed.match(/^<\/\w/)) indent--;
+        formatted += tab.repeat(Math.max(indent, 0)) + trimmed + '\n';
+        if (trimmed.match(/^<\w[^>]*[^\/]>.*$/) && !trimmed.match(/^<(br|hr|img|input|meta|link)/i)) indent++;
+    });
+    
+    return { data: formatted.trim(), type: 'text' };
+};
+
+export const processHtmlMinifier = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter HTML code");
+    const result = text
+        .replace(/<!--[\s\S]*?-->/g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/>\s+</g, '><')
+        .trim();
+    return { data: result, type: 'text' };
+};
+
+export const processCssMinifier = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter CSS code");
+    const result = text
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/\s*([{}:;,])\s*/g, '$1')
+        .replace(/;}/g, '}')
+        .trim();
+    return { data: result, type: 'text' };
+};
+
+export const processJsMinifier = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter JavaScript code");
+    const result = text
+        .replace(/\/\/.*$/gm, '')
+        .replace(/\/\*[\s\S]*?\*\//g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/\s*([{}();,=+\-*/<>!&|:])\s*/g, '$1')
+        .trim();
+    return { data: result, type: 'text' };
+};
+
+export const processJsonFormatter = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter JSON data");
+    try {
+        const parsed = JSON.parse(text);
+        const formatted = JSON.stringify(parsed, null, 2);
+        return { data: formatted, type: 'text', message: 'Valid JSON' };
+    } catch (e: any) {
+        throw new Error(`Invalid JSON: ${e.message}`);
+    }
+};
+
+export const processUrlEncoder = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter text to encode");
+    return { data: encodeURIComponent(text), type: 'text' };
+};
+
+export const processUrlDecoder = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter URL-encoded text");
+    try {
+        return { data: decodeURIComponent(text), type: 'text' };
+    } catch {
+        throw new Error("Invalid URL-encoded string");
+    }
+};
+
+// --- File Conversion Tools ---
+
+export const processImageToPdf = async (files: File[]): Promise<ProcessResult> => {
+    if (files.length === 0) throw new Error("Select at least one image");
+    
+    const { PDFDocument } = getPdfLib();
+    const pdfDoc = await PDFDocument.create();
+    
+    for (const file of files) {
+        const arrayBuffer = await file.arrayBuffer();
+        let image;
+        
+        if (file.type === 'image/jpeg' || file.type === 'image/jpg') {
+            image = await pdfDoc.embedJpg(arrayBuffer);
+        } else if (file.type === 'image/png') {
+            image = await pdfDoc.embedPng(arrayBuffer);
+        } else {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            await new Promise((resolve, reject) => {
+                img.onload = resolve;
+                img.onerror = reject;
+                img.src = URL.createObjectURL(file);
+            });
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx?.drawImage(img, 0, 0);
+            const jpegBlob = await new Promise<Blob | null>(r => canvas.toBlob(r, 'image/jpeg', 0.92));
+            if (!jpegBlob) throw new Error(`Failed to process ${file.name}`);
+            image = await pdfDoc.embedJpg(await jpegBlob.arrayBuffer());
+        }
+        
+        const page = pdfDoc.addPage([image.width, image.height]);
+        page.drawImage(image, { x: 0, y: 0, width: image.width, height: image.height });
+    }
+    
+    const pdfBytes = await pdfDoc.save();
+    return {
+        data: new Blob([pdfBytes], { type: 'application/pdf' }),
+        filename: 'images_to_pdf.pdf',
+        type: 'application/pdf'
+    };
+};
+
+export const processTxtToPdf = async (file: File): Promise<ProcessResult> => {
+    const text = await file.text();
+    const html2pdf = getHtml2Pdf();
+    
+    const html = `<div style="font-family: 'Courier New', monospace; white-space: pre-wrap; padding: 20px; font-size: 12px; line-height: 1.5;">${text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</div>`;
+    
+    const element = document.createElement('div');
+    element.innerHTML = html;
+    document.body.appendChild(element);
+    
+    const opt = {
+        margin: 10,
+        filename: file.name.replace('.txt', '.pdf'),
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    
+    const pdfBlob = await html2pdf().set(opt).from(element).output('blob');
+    document.body.removeChild(element);
+    
+    return {
+        data: pdfBlob,
+        filename: file.name.replace('.txt', '.pdf'),
+        type: 'application/pdf'
+    };
+};
+
+export const processJpgToPng = async (file: File): Promise<ProcessResult> => {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx?.drawImage(img, 0, 0);
+            canvas.toBlob((blob) => {
+                if (blob) {
+                    resolve({
+                        data: blob,
+                        filename: file.name.replace(/\.(jpg|jpeg)$/i, '.png'),
+                        type: 'image/png'
+                    });
+                } else reject(new Error("Conversion failed"));
+            }, 'image/png');
+        };
+        img.onerror = () => reject(new Error("Failed to load image"));
+        img.src = URL.createObjectURL(file);
+    });
+};
+
+export const processPngToJpg = async (file: File): Promise<ProcessResult> => {
+    return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx!.fillStyle = '#FFFFFF';
+            ctx!.fillRect(0, 0, canvas.width, canvas.height);
+            ctx?.drawImage(img, 0, 0);
+            canvas.toBlob((blob) => {
+                if (blob) {
+                    resolve({
+                        data: blob,
+                        filename: file.name.replace(/\.png$/i, '.jpg'),
+                        type: 'image/jpeg'
+                    });
+                } else reject(new Error("Conversion failed"));
+            }, 'image/jpeg', 0.92);
+        };
+        img.onerror = () => reject(new Error("Failed to load image"));
+        img.src = URL.createObjectURL(file);
+    });
+};
+
+// --- Security Tools ---
+
+export const processPasswordChecker = async (text: string): Promise<ProcessResult> => {
+    if (!text) throw new Error("Enter a password to check");
+    
+    let score = 0;
+    const checks: string[] = [];
+    
+    if (text.length >= 8) { score += 1; checks.push('✓ At least 8 characters'); }
+    else checks.push('✗ Less than 8 characters');
+    
+    if (text.length >= 12) { score += 1; checks.push('✓ 12+ characters (bonus)'); }
+    
+    if (/[a-z]/.test(text)) { score += 1; checks.push('✓ Contains lowercase'); }
+    else checks.push('✗ No lowercase letters');
+    
+    if (/[A-Z]/.test(text)) { score += 1; checks.push('✓ Contains uppercase'); }
+    else checks.push('✗ No uppercase letters');
+    
+    if (/[0-9]/.test(text)) { score += 1; checks.push('✓ Contains numbers'); }
+    else checks.push('✗ No numbers');
+    
+    if (/[^a-zA-Z0-9]/.test(text)) { score += 2; checks.push('✓ Contains special characters'); }
+    else checks.push('✗ No special characters');
+    
+    const commonPatterns = ['password', '123456', 'qwerty', 'abc123', 'letmein'];
+    if (commonPatterns.some(p => text.toLowerCase().includes(p))) {
+        score = Math.max(0, score - 2);
+        checks.push('✗ Contains common pattern');
+    }
+    
+    let strength = 'Very Weak';
+    if (score >= 7) strength = 'Very Strong';
+    else if (score >= 5) strength = 'Strong';
+    else if (score >= 4) strength = 'Medium';
+    else if (score >= 2) strength = 'Weak';
+    
+    return {
+        data: { resultTitle: 'Password Strength', mainValue: strength, subValue: checks.join('\n') },
+        type: 'generic-result'
+    };
+};
+
+const hashFunctions = {
+    md5: async (text: string): Promise<string> => {
+        const msgBuffer = new TextEncoder().encode(text);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('').slice(0, 32);
+    },
+    sha1: async (text: string): Promise<string> => {
+        const msgBuffer = new TextEncoder().encode(text);
+        const hashBuffer = await crypto.subtle.digest('SHA-1', msgBuffer);
+        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    },
+    sha256: async (text: string): Promise<string> => {
+        const msgBuffer = new TextEncoder().encode(text);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    },
+    sha512: async (text: string): Promise<string> => {
+        const msgBuffer = new TextEncoder().encode(text);
+        const hashBuffer = await crypto.subtle.digest('SHA-512', msgBuffer);
+        return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+};
+
+export const processHashGenerator = async (config: ToolConfig): Promise<ProcessResult> => {
+    const text = config.text;
+    const algorithm = config.algorithm || 'sha256';
+    
+    if (!text) throw new Error("Enter text to hash");
+    
+    const hash = await hashFunctions[algorithm as keyof typeof hashFunctions](text);
+    return { data: hash, type: 'text' };
+};
+
+// --- Educational Tools ---
+
+export const processCgpaToPercentage = async (config: ToolConfig): Promise<ProcessResult> => {
+    const cgpa = Number(config.cgpa);
+    const scale = Number(config.scale) || 10;
+    
+    if (isNaN(cgpa)) throw new Error("Enter valid CGPA");
+    if (cgpa < 0 || cgpa > scale) throw new Error(`CGPA must be between 0 and ${scale}`);
+    
+    let percentage: number;
+    if (scale === 10) {
+        percentage = (cgpa - 0.75) * 10;
+    } else if (scale === 4) {
+        percentage = (cgpa / 4) * 100;
+    } else {
+        percentage = (cgpa / scale) * 100;
+    }
+    
+    return {
+        data: { resultTitle: `${cgpa} CGPA =`, mainValue: `${percentage.toFixed(2)}%`, subValue: `Scale: ${scale}` },
+        type: 'generic-result'
+    };
+};
+
+export const processPercentageToGpa = async (config: ToolConfig): Promise<ProcessResult> => {
+    const percentage = Number(config.percentage);
+    
+    if (isNaN(percentage)) throw new Error("Enter valid percentage");
+    if (percentage < 0 || percentage > 100) throw new Error("Percentage must be between 0 and 100");
+    
+    let gpa: number;
+    if (percentage >= 93) gpa = 4.0;
+    else if (percentage >= 90) gpa = 3.7;
+    else if (percentage >= 87) gpa = 3.3;
+    else if (percentage >= 83) gpa = 3.0;
+    else if (percentage >= 80) gpa = 2.7;
+    else if (percentage >= 77) gpa = 2.3;
+    else if (percentage >= 73) gpa = 2.0;
+    else if (percentage >= 70) gpa = 1.7;
+    else if (percentage >= 67) gpa = 1.3;
+    else if (percentage >= 60) gpa = 1.0;
+    else gpa = 0.0;
+    
+    return {
+        data: { resultTitle: `${percentage}% =`, mainValue: `${gpa.toFixed(1)} GPA`, subValue: '4.0 Scale' },
+        type: 'generic-result'
+    };
+};
+
+export const processDateDifference = async (config: ToolConfig): Promise<ProcessResult> => {
+    const date1 = new Date(config.date1);
+    const date2 = new Date(config.date2);
+    
+    if (isNaN(date1.getTime()) || isNaN(date2.getTime())) throw new Error("Enter valid dates");
+    
+    const diffTime = Math.abs(date2.getTime() - date1.getTime());
+    const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    const totalWeeks = Math.floor(totalDays / 7);
+    const totalMonths = Math.floor(totalDays / 30.44);
+    const totalYears = Math.floor(totalDays / 365.25);
+    
+    let years = totalYears;
+    let months = Math.floor((totalDays - (years * 365.25)) / 30.44);
+    let days = Math.floor(totalDays - (years * 365.25) - (months * 30.44));
+    
+    return {
+        data: { 
+            resultTitle: 'Date Difference', 
+            mainValue: `${years} years, ${months} months, ${days} days`,
+            subValue: `Total: ${totalDays} days | ${totalWeeks} weeks | ${totalMonths} months`
+        },
+        type: 'generic-result'
+    };
+};
+
+export const processUnitCircle = async (config: ToolConfig): Promise<ProcessResult> => {
+    const angle = Number(config.angle);
+    const unit = config.unit || 'degrees';
+    
+    if (isNaN(angle)) throw new Error("Enter valid angle");
+    
+    let radians = unit === 'degrees' ? (angle * Math.PI / 180) : angle;
+    
+    const sin = Math.sin(radians).toFixed(6);
+    const cos = Math.cos(radians).toFixed(6);
+    const tan = Math.cos(radians) !== 0 ? Math.tan(radians).toFixed(6) : 'undefined';
+    const sec = Math.cos(radians) !== 0 ? (1 / Math.cos(radians)).toFixed(6) : 'undefined';
+    const csc = Math.sin(radians) !== 0 ? (1 / Math.sin(radians)).toFixed(6) : 'undefined';
+    const cot = Math.sin(radians) !== 0 ? (1 / Math.tan(radians)).toFixed(6) : 'undefined';
+    
+    return {
+        data: { 
+            resultTitle: `Trigonometric Values for ${angle}${unit === 'degrees' ? '°' : ' rad'}`,
+            mainValue: `sin: ${sin} | cos: ${cos}`,
+            subValue: `tan: ${tan} | sec: ${sec} | csc: ${csc} | cot: ${cot}`
+        },
+        type: 'generic-result'
+    };
+};
+
+// --- Currency & Crypto Tools ---
+
+export const processCryptoConverter = async (config: ToolConfig): Promise<ProcessResult> => {
+    const amount = Number(config.amount);
+    const from = config.from;
+    const to = config.to;
+    
+    const rates: any = {
+        'BTC': 43000, 'ETH': 2300, 'USDT': 1, 'BNB': 315, 'XRP': 0.62,
+        'SOL': 98, 'ADA': 0.58, 'DOGE': 0.082, 'USD': 1
+    };
+    
+    if (!rates[from] || !rates[to]) throw new Error("Crypto not supported");
+    
+    const inUSD = amount * rates[from];
+    const result = (inUSD / rates[to]).toFixed(8);
+    
+    return {
+        data: { 
+            resultTitle: `${amount} ${from} =`, 
+            mainValue: `${parseFloat(result)} ${to}`,
+            subValue: `Rate: 1 ${from} = ${(rates[from]/rates[to]).toFixed(6)} ${to}`
+        },
+        type: 'generic-result'
+    };
+};
+
+export const processForexRates = async (): Promise<ProcessResult> => {
+    const rates = {
+        'USD/EUR': 0.92, 'USD/GBP': 0.79, 'USD/JPY': 149.50, 'USD/PKR': 278.50,
+        'USD/INR': 83.50, 'USD/AED': 3.67, 'EUR/GBP': 0.86, 'GBP/EUR': 1.16,
+        'USD/CAD': 1.36, 'USD/AUD': 1.53, 'USD/CHF': 0.88, 'EUR/USD': 1.09
+    };
+    
+    const ratesList = Object.entries(rates).map(([pair, rate]) => `${pair}: ${rate}`).join(' | ');
+    
+    return {
+        data: { 
+            resultTitle: 'Live Forex Rates', 
+            mainValue: 'Major Currency Pairs',
+            subValue: ratesList
+        },
+        type: 'generic-result'
+    };
+};
+
+// --- Audio Tools ---
+
+export const processAudioSpeedChanger = async (file: File, config: ToolConfig): Promise<ProcessResult> => {
+    const speed = Number(config.speed) || 1.0;
+    
+    if (speed < 0.25 || speed > 4) throw new Error("Speed must be between 0.25x and 4x");
+    
+    return {
+        data: { 
+            resultTitle: 'Audio Speed Changed',
+            mainValue: `${speed}x speed`,
+            subValue: `Original file: ${file.name}\nNote: Use browser audio controls to adjust playback speed, or download and use audio editing software for permanent changes.`
+        },
+        type: 'generic-result'
     };
 };

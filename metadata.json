@@ -1,0 +1,7 @@
+{
+  "name": "PostupPK.com",
+  "description": "The ultimate suite of free online PDF and utility tools. Merge, split, compress, and convert files securely in your browser.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}

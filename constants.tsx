@@ -591,7 +591,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h3>What's the maximum number of PDFs I can merge?</h3>
       <p>There's no hard limit. You can merge as many PDFs as your browser memory allows - typically dozens of files without issues.</p>
     `,
-    author: 'Sarah Johnson',
+    author: 'Ahsan',
     date: 'Dec 1, 2024',
     readTime: '6 min read',
     image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=800&q=80',
@@ -646,7 +646,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Privacy and Security</h2>
       <p>Your documents stay private - all compression happens directly in your browser. No files are uploaded to servers, and no data is stored or shared.</p>
     `,
-    author: 'Michael Chen',
+    author: 'Ahsan',
     date: 'Nov 28, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80',
@@ -702,7 +702,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Privacy Guarantee</h2>
       <p>All image processing happens in your browser. Your photos and images are never uploaded to any server, ensuring complete privacy.</p>
     `,
-    author: 'Emily Rodriguez',
+    author: 'Ahsan',
     date: 'Nov 25, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80',
@@ -763,7 +763,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Security Note</h2>
       <p>Your Word documents are processed entirely in your browser using client-side technology. Files never leave your device.</p>
     `,
-    author: 'David Park',
+    author: 'Ahsan',
     date: 'Nov 22, 2024',
     readTime: '6 min read',
     image: 'https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=800&q=80',
@@ -828,7 +828,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Combine with Other Tools</h2>
       <p>After splitting, you can use our other PDF tools to compress, merge, or convert the extracted pages as needed.</p>
     `,
-    author: 'Lisa Thompson',
+    author: 'Ahsan',
     date: 'Nov 18, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=800&q=80',
@@ -892,7 +892,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Supported Units</h2>
       <p>Our converter supports: millimeter, centimeter, meter, kilometer, inch, foot, yard, mile, nautical mile, and more.</p>
     `,
-    author: 'James Wilson',
+    author: 'Ahsan',
     date: 'Nov 15, 2024',
     readTime: '4 min read',
     image: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?auto=format&fit=crop&w=800&q=80',
@@ -957,7 +957,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>Use mid-market rates as reference for fair exchange</li>
       </ul>
     `,
-    author: 'Ahmed Khan',
+    author: 'Ahsan',
     date: 'Nov 12, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=800&q=80',
@@ -1025,7 +1025,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>Use our GPA Calculator to compute CGPA from semester grades</li>
       </ul>
     `,
-    author: 'Priya Sharma',
+    author: 'Ahsan',
     date: 'Nov 8, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=800&q=80',
@@ -1097,7 +1097,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>-40° is the same in both Celsius and Fahrenheit</li>
       </ul>
     `,
-    author: 'Robert Miller',
+    author: 'Ahsan',
     date: 'Nov 5, 2024',
     readTime: '4 min read',
     image: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?auto=format&fit=crop&w=800&q=80',
@@ -1169,7 +1169,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Privacy Note</h2>
       <p>All text processing happens in your browser. Your text is never sent to any server or stored anywhere.</p>
     `,
-    author: 'Jennifer Lee',
+    author: 'Ahsan',
     date: 'Nov 2, 2024',
     readTime: '4 min read',
     image: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80',
@@ -1254,7 +1254,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Related Tools</h2>
       <p>Check out our other developer tools: HTML Beautifier, CSS Minifier, JavaScript Minifier, and URL Encoder/Decoder.</p>
     `,
-    author: 'Chris Anderson',
+    author: 'Ahsan',
     date: 'Oct 28, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=80',
@@ -1331,7 +1331,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Related Tools</h2>
       <p>Explore our other encoding tools: URL Encoder, URL Decoder, Text to ASCII, and ASCII to Text converters.</p>
     `,
-    author: 'Daniel Kim',
+    author: 'Ahsan',
     date: 'Oct 25, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
@@ -1414,7 +1414,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Privacy Guarantee</h2>
       <p>Your password is analyzed entirely in your browser. It's never sent to any server or stored anywhere. Check as many passwords as you like with complete privacy.</p>
     `,
-    author: 'Mark Stevens',
+    author: 'Ahsan',
     date: 'Oct 20, 2024',
     readTime: '6 min read',
     image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80',
@@ -1496,7 +1496,7 @@ export const BLOG_POSTS: BlogPost[] = [
         <li>Use specialized password hashing (bcrypt, Argon2) for user passwords</li>
       </ul>
     `,
-    author: 'Alex Turner',
+    author: 'Ahsan',
     date: 'Oct 15, 2024',
     readTime: '6 min read',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80',
@@ -1601,7 +1601,7 @@ export const BLOG_POSTS: BlogPost[] = [
       <h2>Privacy Note</h2>
       <p>All image conversion happens in your browser. Your images are never uploaded to any server.</p>
     `,
-    author: 'Sophie Williams',
+    author: 'Ahsan',
     date: 'Oct 10, 2024',
     readTime: '5 min read',
     image: 'https://images.unsplash.com/photo-1541516160071-4bb0c5af65ba?auto=format&fit=crop&w=800&q=80',

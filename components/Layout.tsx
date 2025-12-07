@@ -119,6 +119,9 @@ const Layout: React.FC = () => {
             <div className="flex items-center gap-2">
                {[
                  { href: "https://www.instagram.com/ahsan0world", icon: Instagram, label: "Instagram", color: "hover:text-pink-600" },
+                 { href: "https://www.facebook.com/editing.king.756776", icon: Facebook, label: "Facebook", color: "hover:text-blue-600" },
+                 { href: "https://www.linkedin.com/in/devwithahsan/", icon: Linkedin, label: "LinkedIn", color: "hover:text-blue-700" },
+                 { href: "https://x.com/Ahsan29772977", icon: Twitter, label: "X (Twitter)", color: "hover:text-black dark:hover:text-white" },
                  { href: "https://github.com/developwithAhsan", icon: Github, label: "GitHub", color: "hover:text-gray-900 dark:hover:text-white" },
                ].map((social, idx) => (
                  <a 
@@ -183,6 +186,9 @@ const Layout: React.FC = () => {
                  <p className="text-xs text-gray-400 uppercase font-bold mb-3 px-3">Connect</p>
                  <div className="flex items-center justify-around">
                    <a href="https://www.instagram.com/ahsan0world" className="p-2 text-gray-500 hover:text-primary-600 dark:text-gray-400"><Instagram size={24}/></a>
+                   <a href="https://www.facebook.com/editing.king.756776" className="p-2 text-gray-500 hover:text-primary-600 dark:text-gray-400"><Facebook size={24}/></a>
+                   <a href="https://www.linkedin.com/in/devwithahsan/" className="p-2 text-gray-500 hover:text-primary-600 dark:text-gray-400"><Linkedin size={24}/></a>
+                   <a href="https://x.com/Ahsan29772977" className="p-2 text-gray-500 hover:text-primary-600 dark:text-gray-400"><Twitter size={24}/></a>
                    <a href="https://github.com/developwithAhsan" className="p-2 text-gray-500 hover:text-primary-600 dark:text-gray-400"><Github size={24}/></a>
                  </div>
               </div>

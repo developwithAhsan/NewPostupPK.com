@@ -4,15 +4,18 @@ import Head from '../components/Head';
 import { NAV_LINKS, TOOLS, BLOG_POSTS } from '../constants';
 import { Mail, MapPin, Check } from 'lucide-react';
 
-const PageLayout: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
-  <div className="container mx-auto px-4 py-12 max-w-3xl min-h-[60vh]">
-    <Head title={title} />
-    <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-4 dark:border-gray-700">{title}</h1>
-    <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
-      {children}
+const PageLayout: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => {
+  const description = `${title} - PostupPK.com. Learn more about our free online utility tools, privacy policy, and terms of service.`;
+  return (
+    <div className="container mx-auto px-4 py-12 max-w-3xl min-h-[60vh]">
+      <Head title={title} description={description} />
+      <h1 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-4 dark:border-gray-700">{title}</h1>
+      <div className="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+        {children}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const About: React.FC = () => (
   <PageLayout title="About Us">

@@ -8,7 +8,11 @@ import { ShareButtons, Newsletter } from '../components/Features';
 // Component for listing all blog posts
 const BlogIndex: React.FC = () => (
   <div className="container mx-auto px-4 py-12">
-    <Head title="Blog" description="Tips, tutorials, and updates from the PostupPK team." />
+    <Head 
+      title="Blog - PostupPK Insights" 
+      description="Tips, tutorials, and updates from the PostupPK team. Learn how to optimize your PDF and digital workflows." 
+      keywords="pdf blog, digital tools tutorial, productivity tips, postuppk news"
+    />
     
     <div className="text-center mb-16">
       <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4">Our Blog</h1>

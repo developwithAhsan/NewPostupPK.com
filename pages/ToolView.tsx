@@ -218,7 +218,6 @@ const ToolView: React.FC = () => {
         title={tool.title} 
         description={tool.description} 
         keywords={tool.keywords?.join(', ')} 
-        image={tool.image}
       />
       
       <div className="grid lg:grid-cols-12 gap-8">

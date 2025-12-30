@@ -32,12 +32,12 @@ export const TOOLS: Tool[] = [
     path: '/tool/split-pdf', 
     keywords: ['extract pages', 'separate pdf', 'split pdf online', 'cut pdf pages']
   },
-  { id: 'compress-pdf', title: 'Compress PDF', description: 'Reduce PDF file size while maintaining quality.', category: 'pdf', icon: 'Minimize2', path: '/tool/compress-pdf' },
-  { id: 'pdf-to-jpg', title: 'PDF to JPG', description: 'Convert PDF pages into high-quality images.', category: 'pdf', icon: 'ImageIcon', path: '/tool/pdf-to-jpg' },
-  { id: 'word-to-pdf', title: 'Word to PDF', description: 'Convert DOCX documents to professional PDFs.', category: 'pdf', icon: 'FileText', path: '/tool/word-to-pdf' },
-  { id: 'pdf-to-word', title: 'PDF to Word', description: 'Convert PDF content back to editable DOCX.', category: 'pdf', icon: 'FileText', path: '/tool/pdf-to-word' },
-  { id: 'excel-to-pdf', title: 'Excel to PDF', description: 'Transform spreadsheets into PDF documents.', category: 'pdf', icon: 'FileSpreadsheet', path: '/tool/excel-to-pdf' },
-  { id: 'ppt-to-pdf', title: 'PPT to PDF', description: 'Convert Powerpoint presentations to PDF.', category: 'pdf', icon: 'FileVideo', path: '/tool/ppt-to-pdf' },
+  { id: 'compress-pdf', title: 'Compress PDF', description: 'Reduce PDF file size while maintaining quality.', category: 'pdf', icon: 'Minimize2', path: '/tool/compress-pdf', keywords: ['compress pdf', 'reduce pdf size', 'shrink pdf', 'pdf compressor online free', 'optimized pdf'] },
+  { id: 'pdf-to-jpg', title: 'PDF to JPG', description: 'Convert PDF pages into high-quality images.', category: 'pdf', icon: 'ImageIcon', path: '/tool/pdf-to-jpg', keywords: ['pdf to jpg', 'pdf to image', 'convert pdf to jpeg', 'pdf pages to images'] },
+  { id: 'word-to-pdf', title: 'Word to PDF', description: 'Convert DOCX documents to professional PDFs.', category: 'pdf', icon: 'FileText', path: '/tool/word-to-pdf', keywords: ['word to pdf', 'docx to pdf', 'convert doc to pdf', 'word to pdf online free', 'ms word to pdf'] },
+  { id: 'pdf-to-word', title: 'PDF to Word', description: 'Convert PDF content back to editable DOCX.', category: 'pdf', icon: 'FileText', path: '/tool/pdf-to-word', keywords: ['pdf to word', 'pdf to docx', 'convert pdf to editable word', 'pdf to doc converter free'] },
+  { id: 'excel-to-pdf', title: 'Excel to PDF', description: 'Transform spreadsheets into PDF documents.', category: 'pdf', icon: 'FileSpreadsheet', path: '/tool/excel-to-pdf', keywords: ['excel to pdf', 'xlsx to pdf', 'convert excel to pdf online', 'spreadsheet to pdf'] },
+  { id: 'ppt-to-pdf', title: 'PPT to PDF', description: 'Convert Powerpoint presentations to PDF.', category: 'pdf', icon: 'FileVideo', path: '/tool/ppt-to-pdf', keywords: ['ppt to pdf', 'powerpoint to pdf', 'pptx to pdf', 'slides to pdf'] },
 
   // --- Image Tools ---
   { 
@@ -49,9 +49,9 @@ export const TOOLS: Tool[] = [
     path: '/tool/image-converter',
     keywords: ['jpg to png', 'png to jpg', 'webp to jpg', 'heic to jpg', 'tiff to jpg', 'bmp to jpg', 'cr2 to jpg', 'nef to jpg']
   },
-  { id: 'image-compressor', title: 'Image Compressor', description: 'Optimise images for web usage.', category: 'image', icon: 'Minimize2', path: '/tool/image-compressor' },
-  { id: 'png-to-svg', title: 'PNG to SVG', description: 'Vectorize raster images to SVG.', category: 'image', icon: 'ImageIcon', path: '/tool/png-to-svg' },
-  { id: 'jpg-to-ico', title: 'JPG to ICO', description: 'Create favicons from images.', category: 'image', icon: 'ImageIcon', path: '/tool/jpg-to-ico' },
+  { id: 'image-compressor', title: 'Image Compressor', description: 'Optimise images for web usage.', category: 'image', icon: 'Minimize2', path: '/tool/image-compressor', keywords: ['compress image', 'reduce image size', 'image optimizer', 'compress jpg', 'compress png'] },
+  { id: 'png-to-svg', title: 'PNG to SVG', description: 'Vectorize raster images to SVG.', category: 'image', icon: 'ImageIcon', path: '/tool/png-to-svg', keywords: ['png to svg', 'convert png to vector', 'raster to svg', 'png to svg online free'] },
+  { id: 'jpg-to-ico', title: 'JPG to ICO', description: 'Create favicons from images.', category: 'image', icon: 'ImageIcon', path: '/tool/jpg-to-ico', keywords: ['jpg to ico', 'favicon generator', 'convert image to ico', 'ico converter'] },
   
   // --- Calculators ---
   { id: 'age-calculator', title: 'Age Calculator', description: 'Calculate exact age in days/minutes.', category: 'calculator', icon: 'Clock', path: '/tool/age-calculator', keywords: ['exact age', 'days alive'] },
@@ -59,7 +59,7 @@ export const TOOLS: Tool[] = [
   { id: 'pregnancy-calculator', title: 'Pregnancy Calculator', description: 'Estimate due date and conception.', category: 'calculator', icon: 'Calculator', path: '/tool/pregnancy-calculator', keywords: ['due date', 'conception date', 'weeks pregnant'] },
   { id: 'gpa-calculator', title: 'GPA Calculator', description: 'Calculate Semester GPA (SGPA).', category: 'calculator', icon: 'BarChart', path: '/tool/gpa-calculator', keywords: ['gpa calculator', 'calculate grades'] },
   { id: 'cgpa-calculator', title: 'CGPA Calculator', description: 'Calculate Cumulative GPA from semesters.', category: 'calculator', icon: 'BarChart', path: '/tool/cgpa-calculator', keywords: ['cgpa calculator', 'cumulative grade', 'gpa to cgpa'] },
-  { id: 'percentage-calculator', title: 'Percentage Calculator', description: 'Simple percentage calculations.', category: 'calculator', icon: 'Calculator', path: '/tool/percentage-calculator' },
+  { id: 'percentage-calculator', title: 'Percentage Calculator', description: 'Simple percentage calculations.', category: 'calculator', icon: 'Calculator', path: '/tool/percentage-calculator', keywords: ['percentage calculator', 'calculate percentage', 'percentage off calculator', 'math percentage'] },
 
   // --- Number & Math Converters ---
   { 
@@ -149,14 +149,14 @@ export const TOOLS: Tool[] = [
   },
 
   // --- E-Book & Document Formats ---
-  { id: 'epub-to-pdf', title: 'EPUB to PDF', description: 'Convert eBooks to PDF format.', category: 'ebook', icon: 'BookOpen', path: '/tool/epub-to-pdf' },
-  { id: 'pdf-to-mobi', title: 'PDF to MOBI', description: 'Convert PDF to Kindle format.', category: 'ebook', icon: 'BookOpen', path: '/tool/pdf-to-mobi' },
+  { id: 'epub-to-pdf', title: 'EPUB to PDF', description: 'Convert eBooks to PDF format.', category: 'ebook', icon: 'BookOpen', path: '/tool/epub-to-pdf', keywords: ['epub to pdf', 'convert ebook to pdf', 'epub to pdf converter', 'read epub as pdf'] },
+  { id: 'pdf-to-mobi', title: 'PDF to MOBI', description: 'Convert PDF to Kindle format.', category: 'ebook', icon: 'BookOpen', path: '/tool/pdf-to-mobi', keywords: ['pdf to mobi', 'convert pdf to kindle', 'pdf to mobi converter', 'kindle format converter'] },
   
   // --- Text & Media ---
-  { id: 'text-to-speech', title: 'Text to Speech', description: 'Convert written text into spoken audio.', category: 'text', icon: 'Mic', path: '/tool/text-to-speech' },
-  { id: 'word-counter', title: 'Word Counter', description: 'Count words, characters, and reading time.', category: 'text', icon: 'Type', path: '/tool/word-counter' },
-  { id: 'qr-generator', title: 'QR Generator', description: 'Create QR codes for URLs and text.', category: 'converter', icon: 'QrCode', path: '/tool/qr-generator' },
-  { id: 'password-generator', title: 'Password Gen', description: 'Create secure, random passwords.', category: 'converter', icon: 'Lock', path: '/tool/password-generator' },
+  { id: 'text-to-speech', title: 'Text to Speech', description: 'Convert written text into spoken audio.', category: 'text', icon: 'Mic', path: '/tool/text-to-speech', keywords: ['text to speech', 'tts online free', 'read text aloud', 'speech generator', 'voice from text'] },
+  { id: 'word-counter', title: 'Word Counter', description: 'Count words, characters, and reading time.', category: 'text', icon: 'Type', path: '/tool/word-counter', keywords: ['word count', 'character counter', 'word counter online', 'text length checker', 'reading time calculator'] },
+  { id: 'qr-generator', title: 'QR Generator', description: 'Create QR codes for URLs and text.', category: 'converter', icon: 'QrCode', path: '/tool/qr-generator', keywords: ['qr generator', 'create qr code', 'free qr code maker', 'qr code for link'] },
+  { id: 'password-generator', title: 'Password Gen', description: 'Create secure, random passwords.', category: 'converter', icon: 'Lock', path: '/tool/password-generator', keywords: ['password generator', 'random password', 'secure password maker', 'password creator'] },
   { id: 'json-to-excel', title: 'JSON to Excel', description: 'Convert JSON data to Excel/CSV.', category: 'converter', icon: 'FileSpreadsheet', path: '/tool/json-to-excel', keywords: ['json to excel', 'xml to excel'] },
   { 
     id: 'csv-to-excel', 
@@ -545,6 +545,7 @@ export const BLOG_POSTS: BlogPost[] = [
     slug: 'how-to-merge-pdf-files-free-online',
     title: 'How to Merge PDF Files Free Online in 2024 - Complete Guide',
     excerpt: 'Learn how to combine multiple PDF documents into one file without installing software. Step-by-step tutorial for merging PDFs online for free.',
+    keywords: ['merge pdf', 'combine pdf', 'join pdf files', 'free online pdf merger', 'how to merge pdfs', 'best pdf merger 2024'],
     content: `
       <h2>Why Merge PDF Files?</h2>
       <p>Merging PDF files is essential when you need to combine multiple documents into a single, organized file. Whether you're compiling reports, combining scanned documents, or creating a unified presentation, merging PDFs saves time and keeps your files organized.</p>

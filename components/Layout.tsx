@@ -284,6 +284,7 @@ const Layout: React.FC = () => {
                 <li><Link to="/terms" className="hover:text-primary-400 transition-colors hover:translate-x-1 duration-200 inline-block text-sm">Terms of Service</Link></li>
                 <li><Link to="/contact" className="hover:text-primary-400 transition-colors hover:translate-x-1 duration-200 inline-block text-sm">Contact Support</Link></li>
                 <li><Link to="/sitemap" className="hover:text-primary-400 transition-colors hover:translate-x-1 duration-200 inline-block text-sm">Sitemap</Link></li>
+                <li><a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-primary-400 transition-colors hover:translate-x-1 duration-200 inline-block text-sm">Sitemap (XML)</a></li>
               </ul>
             </div>
           </div>

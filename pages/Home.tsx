@@ -116,11 +116,16 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placeholder */}
+      {/* Ad Area */}
       <RevealOnScroll className="container mx-auto px-4 my-8">
-        <div className="bg-gray-100 dark:bg-dark-800 border-2 border-dashed border-gray-300 dark:border-gray-700 h-24 rounded-lg flex flex-col items-center justify-center text-gray-400 text-sm group hover:border-primary-300 transition-colors">
-          <span>Advertisement Area</span>
-          <span className="text-xs text-gray-500">Support us by disabling adblocker</span>
+        <div className="bg-white dark:bg-dark-800 border border-gray-100 dark:border-gray-700 shadow-sm rounded-2xl overflow-hidden flex flex-col items-center justify-center p-4 transition-all hover:shadow-md">
+          <div className="text-[10px] uppercase tracking-widest text-gray-400 mb-2 font-bold">Advertisement</div>
+          <div className="w-full max-w-[728px] h-[90px] flex items-center justify-center bg-gray-50 dark:bg-dark-900/50 rounded-lg overflow-hidden">
+            <a href="https://otieu.com/4/10394181" target="_blank" rel="noopener noreferrer" className="block w-full h-full flex items-center justify-center">
+              <span className="text-primary-600 font-bold animate-pulse">Click here to support us!</span>
+            </a>
+          </div>
+          <span className="text-[10px] text-gray-400 mt-2">Support PostupPK.com by viewing our sponsors</span>
         </div>
       </RevealOnScroll>
 

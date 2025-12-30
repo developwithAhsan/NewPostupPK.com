@@ -1,131 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://quge5.com/88/tag.min.js" data-zone="197337" async data-cfasync="false"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#dc2626" />
     <meta name="description" content="Free, secure, and fast online PDF tools. Merge, split, compress, and convert files directly in your browser with PostupPK.com." />
     <meta name="keywords" content="PDF tools, merge PDF, split PDF, compress PDF, PDF to JPG, word to PDF, image converter, free online utilities, secure PDF processing, client-side PDF, PostupPK, age calculator, unit converter, text to speech, QR generator" />
-    
-    <title>PostupPK.com</title>
-    
-    <!-- Performance: Preconnect to CDNs -->
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" />
-    <link rel="preconnect" href="https://unpkg.com" />
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-    
-    <!-- Service Worker Registration -->
+
+    <title>PostupPK.com - Free PDF Tools & Converters</title>
+
+    <!-- DNS Prefetch for performance -->
+    <link rel="dns-prefetch" href="https://cdn.tailwindcss.com" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://quge5.com" />
+
+    <!-- Inline Critical CSS for instant paint -->
+    <style>
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{margin:0;padding:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,sans-serif;line-height:1.5}
+      .bg-gray-50{background-color:#f9fafb}
+      .text-gray-900{color:#111827}
+      .dark{color-scheme:dark}
+      .dark .bg-dark-900{background-color:#111827}
+      .dark .text-gray-100{color:#f3f4f6}
+      #root{min-height:100vh}
+      @keyframes spin{to{transform:rotate(360deg)}}
+      .loading-spinner{width:40px;height:40px;border:4px solid #e5e7eb;border-top-color:#dc2626;border-radius:50%;animation:spin 1s linear infinite}
+    </style>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/index.css" as="style" />
+    <link rel="stylesheet" href="/index.css">
+
+    <!-- Service Worker Registration (deferred) -->
     <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js').then(registration => {
-            console.log('SW registered: ', registration);
-          }).catch(registrationError => {
-            console.log('SW registration failed: ', registrationError);
-          });
+      if('serviceWorker' in navigator){
+        window.addEventListener('load',()=>{
+          navigator.serviceWorker.register('/sw.js').catch(()=>{});
         });
       }
     </script>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Safer configuration to prevent ReferenceError if CDN fails offline
-      window.tailwind = window.tailwind || {};
-      window.tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            colors: {
-              primary: {
-                50: '#fef2f2',
-                100: '#fee2e2',
-                500: '#ef4444', // Red-500
-                600: '#dc2626',
-                700: '#b91c1c',
-              },
-              dark: {
-                800: '#1f2937',
-                900: '#111827',
-              }
+
+    <!-- Defer non-critical scripts -->
+    <script defer src="https://cdn.tailwindcss.com"></script>
+    <script defer>
+      window.tailwind=window.tailwind||{};
+      window.tailwind.config={
+        darkMode:'class',
+        theme:{
+          extend:{
+            colors:{
+              primary:{50:'#fef2f2',100:'#fee2e2',500:'#ef4444',600:'#dc2626',700:'#b91c1c'},
+              dark:{800:'#1f2937',900:'#111827'}
             },
-            animation: {
-              'blob': 'blob 7s infinite',
-              'fade-in': 'fadeIn 0.8s ease-out forwards',
-              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-              'slide-up': 'slideUp 0.6s ease-out forwards',
-              'slide-up-delay': 'slideUp 0.6s ease-out 0.2s forwards',
-              'slide-up-delay-2': 'slideUp 0.6s ease-out 0.4s forwards',
-              'float': 'float 3s ease-in-out infinite',
-              'scale-in': 'scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-              'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-              'gradient-x': 'gradient-x 8s ease infinite',
-              'shimmer': 'shimmer 2s linear infinite',
-              'spin-slow': 'spin 3s linear infinite',
+            animation:{
+              'blob':'blob 7s infinite',
+              'fade-in':'fadeIn 0.8s ease-out forwards',
+              'fade-in-up':'fadeInUp 0.8s ease-out forwards',
+              'slide-up':'slideUp 0.6s ease-out forwards',
+              'slide-up-delay':'slideUp 0.6s ease-out 0.2s forwards',
+              'slide-up-delay-2':'slideUp 0.6s ease-out 0.4s forwards',
+              'float':'float 3s ease-in-out infinite',
+              'scale-in':'scaleIn 0.5s cubic-bezier(0.16,1,0.3,1) forwards',
+              'pulse-slow':'pulse 3s cubic-bezier(0.4,0,0.6,1) infinite',
+              'gradient-x':'gradient-x 8s ease infinite',
+              'shimmer':'shimmer 2s linear infinite',
+              'spin-slow':'spin 3s linear infinite'
             },
-            keyframes: {
-              blob: {
-                '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                '100%': { transform: 'translate(0px, 0px) scale(1)' },
-              },
-              fadeIn: {
-                '0%': { opacity: '0' },
-                '100%': { opacity: '1' },
-              },
-              fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(20px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              slideUp: {
-                '0%': { opacity: '0', transform: 'translateY(30px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              float: {
-                '0%, 100%': { transform: 'translateY(0)' },
-                '50%': { transform: 'translateY(-10px)' },
-              },
-              scaleIn: {
-                '0%': { transform: 'scale(0.9)', opacity: '0' },
-                '100%': { transform: 'scale(1)', opacity: '1' },
-              },
-              'gradient-x': {
-                '0%, 100%': {
-                    'background-size': '200% 200%',
-                    'background-position': 'left center'
-                },
-                '50%': {
-                    'background-size': '200% 200%',
-                    'background-position': 'right center'
-                },
-              },
-              shimmer: {
-                '0%': { backgroundPosition: '-1000px 0' },
-                '100%': { backgroundPosition: '1000px 0' }
-              }
+            keyframes:{
+              blob:{'0%':{transform:'translate(0px,0px) scale(1)'},'33%':{transform:'translate(30px,-50px) scale(1.1)'},'66%':{transform:'translate(-20px,20px) scale(0.9)'},'100%':{transform:'translate(0px,0px) scale(1)'}},
+              fadeIn:{'0%':{opacity:'0'},'100%':{opacity:'1'}},
+              fadeInUp:{'0%':{opacity:'0',transform:'translateY(20px)'},'100%':{opacity:'1',transform:'translateY(0)'}},
+              slideUp:{'0%':{opacity:'0',transform:'translateY(30px)'},'100%':{opacity:'1',transform:'translateY(0)'}},
+              float:{'0%,100%':{transform:'translateY(0)'},'50%':{transform:'translateY(-10px)'}},
+              scaleIn:{'0%':{transform:'scale(0.9)',opacity:'0'},'100%':{transform:'scale(1)',opacity:'1'}},
+              'gradient-x':{'0%,100%':{'background-size':'200% 200%','background-position':'left center'},'50%':{'background-size':'200% 200%','background-position':'right center'}},
+              shimmer:{'0%':{backgroundPosition:'-1000px 0'},'100%':{backgroundPosition:'1000px 0'}}
             }
           }
         }
       }
     </script>
 
-    <!-- PDF & Media Libraries -->
-    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
-    <script src="https://unpkg.com/tesseract.js@5/dist/tesseract.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    
-    <!-- Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-  <script type="importmap">
+    <!-- Lazy load PDF & Media Libraries only when needed -->
+    <script>
+      window.loadLibrary=(lib)=>{
+        if(window[lib])return Promise.resolve();
+        const scripts={
+          PDFLib:'https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js',
+          pdfjsLib:'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js',
+          Tesseract:'https://unpkg.com/tesseract.js@5/dist/tesseract.min.js',
+          html2pdf:'https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js',
+          mammoth:'https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js',
+          XLSX:'https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js',
+          PptxGenJS:'https://cdnjs.cloudflare.com/ajax/libs/pptxgenjs/3.12.0/pptxgen.min.js',
+          fabric:'https://cdnjs.cloudflare.com/ajax/libs/fabric.js/5.3.0/fabric.min.js',
+          JSZip:'https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js'
+        };
+        return new Promise((resolve,reject)=>{
+          const script=document.createElement('script');
+          script.src=scripts[lib];
+          script.async=true;
+          script.onload=resolve;
+          script.onerror=reject;
+          document.head.appendChild(script);
+        });
+      };
+    </script>
+
+    <!-- Import map -->
+    <script type="importmap">
 {
   "imports": {
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
@@ -136,17 +122,18 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
-</head>
+
+    <!-- Ad script (async) -->
+    <script async src="https://quge5.com/88/tag.min.js" data-zone="197337" data-cfasync="false"></script>
+  </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-primary-500 selection:text-white">
     <div id="root">
-      <!-- Fallback Loading UI for slow connections or offline initial load -->
-      <div style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:sans-serif;color:#666;">
-        <div style="width:40px;height:40px;border:4px solid #e5e7eb;border-top-color:#dc2626;border-radius:50%;animation:spin 1s linear infinite;margin-bottom:16px;"></div>
-        <p>Loading application...</p>
-        <style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+      <!-- Accessible Loading UI -->
+      <div role="status" aria-live="polite" aria-label="Loading application" style="display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column;font-family:system-ui,sans-serif;color:#666;">
+        <div class="loading-spinner" aria-hidden="true"></div>
+        <p style="margin-top:16px;font-size:14px;">Loading application...</p>
       </div>
     </div>
-  <script type="module" src="/index.tsx"></script>
-</body>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>

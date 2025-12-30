@@ -51,7 +51,7 @@ export const Contact: React.FC = () => {
       </div>
 
       <form 
-        action="https://formsubmit.co/editingking.2977@gmail.com" 
+        action="https://formsubmit.click/postuppk.com@gmail.com" 
         method="POST" 
         className="mt-8 space-y-6 bg-gray-50 dark:bg-dark-800 p-8 rounded-xl border border-gray-200 dark:border-gray-700"
       >

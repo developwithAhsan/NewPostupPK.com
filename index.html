@@ -110,8 +110,6 @@
       };
     </script>
 
-    <!-- Ad script (async) -->
-    <script async src="https://quge5.com/88/tag.min.js" data-zone="197337" data-cfasync="false"></script>
   </head>
   <body class="bg-gray-50 text-gray-900 dark:bg-dark-900 dark:text-gray-100 transition-colors duration-300 antialiased selection:bg-primary-500 selection:text-white">
     <div id="root">
@@ -122,5 +120,7 @@
       </div>
     </div>
     <script type="module" src="/index.tsx"></script>
+    <!-- Ad script (deferred to avoid conflicts) -->
+    <script async src="https://quge5.com/88/tag.min.js" data-zone="197337" data-cfasync="false"></script>
   </body>
 </html>

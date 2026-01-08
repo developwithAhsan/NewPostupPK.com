@@ -73,7 +73,7 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-dark-900 dark:to-dark-800 py-24 lg:py-32">
         <div className="absolute top-0 left-0 -ml-20 -mt-20 w-96 h-96 bg-primary-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob"></div>
-        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-purple-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-orange-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute bottom-0 left-1/2 -ml-20 -mb-20 w-96 h-96 bg-pink-500/20 rounded-full mix-blend-multiply filter blur-3xl opacity-70 animate-blob animation-delay-4000"></div>
 
         <div className="container mx-auto px-4 text-center relative z-10">
@@ -89,7 +89,7 @@ const Home: React.FC = () => {
 
           <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight leading-tight animate-fade-in-up animation-delay-200">
             Every tool you need, <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-purple-600 to-primary-600 animate-gradient-x bg-[length:200%_auto]">PostupPK.com</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 via-red-500 to-primary-700 animate-gradient-x bg-[length:200%_auto]">PostupPK.com</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto mb-12 animate-fade-in-up animation-delay-400 leading-relaxed">
@@ -99,7 +99,7 @@ const Home: React.FC = () => {
           
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto relative group z-20 animate-fade-in-up animation-delay-600">
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-purple-600 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-primary-600 to-orange-500 rounded-2xl blur opacity-25 group-hover:opacity-50 transition duration-500"></div>
             <div className="relative flex items-center bg-white dark:bg-dark-800 rounded-xl shadow-2xl border border-gray-100 dark:border-gray-700 overflow-hidden transform transition-transform duration-200 focus-within:scale-[1.01]">
                <div className="pl-6 text-primary-500">
                  <Icons.Search size={24}/>
@@ -237,7 +237,7 @@ const Home: React.FC = () => {
                </RevealOnScroll>
                
                <RevealOnScroll delay={300} className="flex gap-6">
-                  <div className="shrink-0 w-12 h-12 bg-purple-100 dark:bg-purple-900/30 text-purple-600 rounded-xl flex items-center justify-center">
+                  <div className="shrink-0 w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 rounded-xl flex items-center justify-center">
                     <Icons.Smartphone size={24} />
                   </div>
                   <div>

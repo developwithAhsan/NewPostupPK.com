@@ -8,7 +8,7 @@ const Logo: React.FC = () => (
   <div className="flex items-center gap-3 group cursor-pointer select-none">
     <div className="relative w-10 h-10">
       <div className="absolute inset-0 bg-primary-600 rounded-xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300 opacity-20"></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg transform group-hover:-translate-y-1 transition-transform duration-300">
+      <div className="absolute inset-0 bg-gradient-to-br from-primary-600 to-red-700 rounded-xl flex items-center justify-center shadow-lg transform group-hover:-translate-y-1 transition-transform duration-300">
         <Command className="text-white w-6 h-6" />
       </div>
     </div>
@@ -216,7 +216,7 @@ const Layout: React.FC = () => {
             {/* Column 1: Brand */}
             <div>
               <div className="flex items-center gap-2 mb-6 group">
-                <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-purple-600 rounded-lg flex items-center justify-center font-bold text-white shadow-lg group-hover:rotate-12 transition-transform">
+                <div className="w-8 h-8 bg-gradient-to-br from-primary-600 to-red-700 rounded-lg flex items-center justify-center font-bold text-white shadow-lg group-hover:rotate-12 transition-transform">
                   <Command size={16} />
                 </div>
                 <span className="text-xl font-bold text-white tracking-tight">Postup<span className="text-primary-500">PK</span>.com</span>
